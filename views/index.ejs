@@ -58,13 +58,15 @@
                         <h1><a href="/"><span>AMD</span> - KStore</a></h1>
                     </div>
                 </div>
-
-                <div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$800</span> <i
-                                class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                <% if (user) { %>
+                    <div class="col-sm-6">
+                        <div class="shopping-item">
+                            <a href="#">User: <span class="cart-amunt">
+                                    <%= user %>
+                                </span></a>
+                        </div>
                     </div>
-                </div>
+                    <% } %>
             </div>
         </div>
     </div> <!-- End site branding area -->
@@ -125,7 +127,7 @@
                                                 <h2>The Fastest in the Games</h2>
                                                 <p>Introducing the <a href=""> AMD Ryzen™ 5000 Series Desktop
                                                         Processors. </a></p>
-                                                <a href="" class="readmore">FIND RETAILERS</a>
+                                                <a href="#" class="readmore">FIND RETAILERS</a>
                                             </div>
                                         </div>
                                     </div>
@@ -223,7 +225,7 @@
                             <div class="single-product">
 
                                 <% if(products) {products.forEach((product)=> { %>
-                                    <h2><a href="single-product.html">
+                                    <h2><a href="/kstore/processors/<%= product._id %>">
                                             <%= product.model %>
                                         </a></h2>
                                     <div class="product-carousel-price">
@@ -236,7 +238,7 @@
                                 <div class="product-f-image">
                                     <img src="<%= product.picture %>" alt="">
                                     <div class="product-hover">
-                                        <a href="single-product.html" class="view-details-link"><i
+                                        <a href="/kstore/processors/<%= product._id %>" class="view-details-link"><i
                                                 class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>
@@ -261,12 +263,6 @@
                                 alt="">
                             <img src="https://www.amd.com/system/files/styles/992px/private/2021-07/921575-amd-microsoft-windows-glow-1260x709.png?itok=Ewmrhxda"
                                 alt="">
-                            <img src="img/services_logo__3.jpg" alt="">
-                            <img src="img/services_logo__4.jpg" alt="">
-                            <img src="img/services_logo__1.jpg" alt="">
-                            <img src="img/services_logo__2.jpg" alt="">
-                            <img src="img/services_logo__3.jpg" alt="">
-                            <img src="img/services_logo__4.jpg" alt="">
                         </div>
                     </div>
                 </div>
@@ -285,9 +281,9 @@
                         <% if (products) { %>
                             <% for(let i=0; i < 3; i++) { %>
                                 <div class="single-wid-product">
-                                    <a href="single-product.html"><img src="<%= products[i].picture %>" alt=""
-                                            class="product-thumb"></a>
-                                    <h2><a href="single-product.html">
+                                    <a href="/kstore/processors/<%= products[i]._id %>"><img
+                                            src="<%= products[i].picture %>" alt="" class="product-thumb"></a>
+                                    <h2><a href="/kstore/processors/<%= products[i]._id %>">
                                             <%= products[i].model %>
                                         </a></h2>
                                     <div class="product-wid-rating">
@@ -314,9 +310,9 @@
                         <% if (products) { %>
                             <% for(let i=0; i < 3; i++) { %>
                                 <div class="single-wid-product">
-                                    <a href="single-product.html"><img src="<%= products[i].picture %>" alt=""
-                                            class="product-thumb"></a>
-                                    <h2><a href="single-product.html">
+                                    <a href="/kstore/processors/<%= products[i]._id %>"><img
+                                            src="<%= products[i].picture %>" alt="" class="product-thumb"></a>
+                                    <h2><a href="/kstore/processors/<%= products[i]._id %>">
                                             <%= products[i].model %>
                                         </a></h2>
                                     <div class="product-wid-rating">
@@ -343,9 +339,9 @@
                         <% if (products) { %>
                             <% for(let i=0; i < 3; i++) { %>
                                 <div class="single-wid-product">
-                                    <a href="single-product.html"><img src="<%= products[i].picture %>" alt=""
-                                            class="product-thumb"></a>
-                                    <h2><a href="single-product.html">
+                                    <a href="/kstore/processors/<%= products[i]._id %>"><img
+                                            src="<%= products[i].picture %>" alt="" class="product-thumb"></a>
+                                    <h2><a href="/kstore/processors/<%= products[i]._id %>">
                                             <%= products[i].model %>
                                         </a></h2>
                                     <div class="product-wid-rating">

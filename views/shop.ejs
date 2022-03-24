@@ -59,12 +59,15 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="cart.html">Cart - <span class="cart-amunt">$800</span> <i
-                                class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                <% if (user) { %>
+                    <div class="col-sm-6">
+                        <div class="shopping-item">
+                            <a href="#">User: <span class="cart-amunt">
+                                    <%= user %>
+                                </span></a>
+                        </div>
                     </div>
-                </div>
+                    <% } %>
             </div>
         </div>
     </div> <!-- End site branding area -->
@@ -117,7 +120,7 @@
                             <div class="product-upper">
                                 <img src="<%= product.picture %>" alt="">
                             </div>
-                            <h2><a href="">
+                            <h2><a href="/kstore/processors<%= product._id %>">
                                     <%= product.model %>
                                 </a></h2>
                             <div class="product-carousel-price">
@@ -127,7 +130,7 @@
                             </div>
 
                             <div class="product-option-shop">
-                                <a class="add_to_cart_button" href="/canvas/shop/?add-to-cart=70">Processor
+                                <a class="add_to_cart_button" href="/kstore/processors<%= product._id %>">Processor
                                     Specifications</a>
                             </div>
                         </div>
@@ -136,29 +139,65 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12">
-                    <div class="product-pagination text-center">
-                        <nav>
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+                <% if (pages> 0) { %>
+                    <div class="col-md-12">
+                        <div class="product-pagination text-center">
+                            <nav>
+                                <ul class="pagination">
+                                    <% if (current==1) { %>
+                                        <li class="disabled">
+                                            <a href="#" aria-label="Previous">
+                                                <span aria-hidden="true">First</span>
+                                            </a>
+                                        </li>
+                                        <% } else { %>
+                                            <li>
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">First</span>
+                                                </a>
+                                            </li>
+                                            <% } %>
+                                                <% let i=(Number(current)> 3 ? Number(current) - 2 : 1) %>
+                                                    <% if ( i !==1) { %>
+                                                        <li><a href="#">...</a></li>
+                                                        <% } %>
+                                                        <% for (; i<=(Number(current) + 2) && i <=pages; i++) { %>
+                                                            <% if (i==current) { %>
+                                                                <li class="active"><a
+                                                                    href="/kstore/processors/<%= i %>">
+                                                                    <%= i %>
+                                                                </a></li>
+                                                            <% } else { %>
+                                                                <li><a href="/kstore/processors/<%= i %>">
+                                                                    <%= i %>
+                                                                </a></li>
+                                                            <% } %>
+                                                            <% if (i==Number(current) + 2 && i < pages) { %>
+                                                                <li class="disabled"><a href="#">...</a></li>
+                                                            <% } %>
+                                                        <% } %>
+                                                        <% if (current==pages) { %>
+                                                            <li class="disabled">
+                                                                <a href="#"
+                                                                aria-label="Next">
+                                                                <span aria-hidden="true">Last</span>
+                                                                </a>
+                                                            </li>
+                                                        <% } else { %>
+                                                            <li>
+                                                                <a href="/kstore/processors/<%= pages %>"
+                                                                    aria-label="Next">
+                                                                    <span
+                                                                        aria-hidden="true">Last</span>
+                                                                </a>
+                                                            </li>
+                                                            <% } %>
+
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
-                </div>
+                    <% } %>
             </div>
         </div>
     </div>

@@ -7,9 +7,24 @@ const Product = require("../models/Product");
 router.get("/", (req, res) => {
   return res.send("PHONE PAGE");
 });
-router.get("/processors", async (req, res) => {
-  const products = await Product.find();
-  return res.render("shop", { products });
+router.get("/processors", async (req, res, next) => {
+  const page = req.params.page || 1;
+  const perPage = 12;
+  const user = req.session.name;
+  await Product.find()
+    .skip(perPage * page - perPage)
+    .limit(perPage)
+    .exec(function (err, products) {
+      Product.countDocuments((err, count) => {
+        if (err) return next(err);
+        return res.render("shop", {
+          products,
+          current: page,
+          pages: Math.ceil(count / perPage),
+          user,
+        });
+      });
+    });
 });
 router.get("/processors/:id", async (req, res) => {
   const product = await Product.findOne({ _id: req.params.id });
