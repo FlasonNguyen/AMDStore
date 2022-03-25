@@ -86,7 +86,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/">Home</a></li>
-                        <li><a href="/kstore/processors">Processors</a></li>
+                        <li><a href="/kstore">Processors</a></li>
                         <li><a href="cart.html">Features</a></li>
                         <li><a href="#">Category</a></li>
                         <li><a href="#">About</a></li>
@@ -130,7 +130,7 @@
                             </div>
 
                             <div class="product-option-shop">
-                                <a class="add_to_cart_button" href="/kstore/processors<%= product._id %>">Processor
+                                <a class="add_to_cart_button" href="/kstore/processors/<%= product._id %>">Processor
                                     Specifications</a>
                             </div>
                         </div>
@@ -146,13 +146,13 @@
                                 <ul class="pagination">
                                     <% if (current==1) { %>
                                         <li class="disabled">
-                                            <a href="#" aria-label="Previous">
+                                            <a href="/kstore/1" aria-label="Previous">
                                                 <span aria-hidden="true">First</span>
                                             </a>
                                         </li>
                                         <% } else { %>
                                             <li>
-                                                <a href="#" aria-label="Previous">
+                                                <a href="/kstore/1" aria-label="Previous">
                                                     <span aria-hidden="true">First</span>
                                                 </a>
                                             </li>
@@ -161,37 +161,39 @@
                                                     <% if ( i !==1) { %>
                                                         <li><a href="#">...</a></li>
                                                         <% } %>
-                                                        <% for (; i<=(Number(current) + 2) && i <=pages; i++) { %>
-                                                            <% if (i==current) { %>
-                                                                <li class="active"><a
-                                                                    href="/kstore/processors/<%= i %>">
-                                                                    <%= i %>
-                                                                </a></li>
-                                                            <% } else { %>
-                                                                <li><a href="/kstore/processors/<%= i %>">
-                                                                    <%= i %>
-                                                                </a></li>
-                                                            <% } %>
-                                                            <% if (i==Number(current) + 2 && i < pages) { %>
-                                                                <li class="disabled"><a href="#">...</a></li>
-                                                            <% } %>
-                                                        <% } %>
-                                                        <% if (current==pages) { %>
-                                                            <li class="disabled">
-                                                                <a href="#"
-                                                                aria-label="Next">
-                                                                <span aria-hidden="true">Last</span>
-                                                                </a>
-                                                            </li>
-                                                        <% } else { %>
-                                                            <li>
-                                                                <a href="/kstore/processors/<%= pages %>"
-                                                                    aria-label="Next">
-                                                                    <span
-                                                                        aria-hidden="true">Last</span>
-                                                                </a>
-                                                            </li>
-                                                            <% } %>
+                                                            <% for (; i<=(Number(current) + 2) && i <=pages; i++) { %>
+                                                                <% if (i==current) { %>
+                                                                    <li class="active"><a href="/kstore/<%= i %>">
+                                                                            <%= i %>
+                                                                        </a></li>
+                                                                    <% } else { %>
+                                                                        <li><a href="/kstore/<%= i %>">
+                                                                                <%= i %>
+                                                                            </a></li>
+                                                                        <% } %>
+                                                                            <% if (i==Number(current) + 2 && i < pages)
+                                                                                { %>
+                                                                                <li class="disabled"><a href="#">...</a>
+                                                                                </li>
+                                                                                <% } %>
+                                                                                    <% } %>
+                                                                                        <% if (current==pages) { %>
+                                                                                            <li class="disabled">
+                                                                                                <a href="/kstore/<%= pages %>"
+                                                                                                    aria-label="Next">
+                                                                                                    <span
+                                                                                                        aria-hidden="true">Last</span>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                            <% } else { %>
+                                                                                                <li>
+                                                                                                    <a href="/kstore/<%= pages %>"
+                                                                                                        aria-label="Next">
+                                                                                                        <span
+                                                                                                            aria-hidden="true">Last</span>
+                                                                                                    </a>
+                                                                                                </li>
+                                                                                                <% } %>
 
                                 </ul>
                             </nav>
