@@ -23,11 +23,6 @@ router.get("/", async (req, res) => {
       });
     });
 });
-router.get("/features", async (req, res) => {
-  const user = await User.find();
-  const products = await Product.find();
-  return res.render("features", { user, products });  
-});
 router.get("/:page", async (req, res, next) => {
   const page = req.params.page || 1;
   const perPage = 12;

@@ -3,6 +3,7 @@ const router = express.Router(); //chuc nang cua framework
 
 const { validationResult } = require("express-validator"); //xac thuc request duoc gui tu client
 const bcrypt = require("bcrypt"); //bam nho mat khau
+const alert = require("alert");
 
 const signInValidator = require("./validators/signInValidator");
 const signUpValidator = require("./validators/signUpValidator");
@@ -10,26 +11,32 @@ const signUpValidator = require("./validators/signUpValidator");
 const User = require("../models/User");
 
 router.get("/", (req, res) => {
+  alert("Hello");
   return res.send("LOGIN PAGE");
 });
 router.get("/signup", (req, res) => {
   return res.send("SIGN UP PAGE");
 });
-router.get("/signout", (req, res) => {
-  req.session.destroy;
-  return res.send("LOGOUT SUCCESS");
+router.get("/signout", (req, res, next) => {
+  if (req.session) {
+    req.session.destroy(function (err) {
+      if (err) {
+        return next(err);
+      } else {
+        return res.redirect("/");
+      }
+    });
+  }
 });
 router.post("/signin", signInValidator, (req, res) => {
   let result = validationResult(req);
-  let errors = [];
   if (result.errors.length == 0) {
     let { email, password } = req.body;
     let user = undefined;
-    let role = undefined;
     User.findOne({ email: email })
       .then((u) => {
         if (!u) {
-          errors.push({ msg: "User not found" });
+          return alert("User not found");
         }
         role = u.role;
         user = u;
@@ -37,17 +44,16 @@ router.post("/signin", signInValidator, (req, res) => {
       })
       .then((passwordVerified) => {
         if (!passwordVerified) {
-          errors.push({ msg: "Wrong Password" });
-          return res.send(errors);
+          return alert("Wrong Password");
         }
         req.session._id = user._id;
         req.session.role = user.role;
         req.session.name = user.name;
         console.log(user);
-        return res.send("LOGIN SUCCESS PHASE 2");
+        return res.redirect("/");
       })
       .catch((e) => {
-        return res.send("LOGIN FAIL PHASE 2: " + e.message);
+        return res.redirect("/");
       });
   } else {
     let messages = result.mapped();
@@ -56,21 +62,18 @@ router.post("/signin", signInValidator, (req, res) => {
       message = messages[m].msg;
       break;
     }
-    errors.push({ msg: message });
-    return res.send(errors);
+    return alert(message);
   }
 });
 router.post("/signup", signUpValidator, (req, res) => {
   let result = validationResult(req);
-  let errors = [];
   let { email, password, phone, address, name } = req.body;
   console.log(result);
   if (result.errors.length == 0) {
     User.findOne({ email: email })
       .then((account) => {
         if (account) {
-          errors.push({ msg: "This email already sign up" });
-          return res.send(errors);
+          return alert("This email already sign up");
         }
       })
       .then(() => bcrypt.hash(password, 10)) //bam mat khau
@@ -90,10 +93,10 @@ router.post("/signup", signUpValidator, (req, res) => {
         user.save(); //luu lai
       })
       .then(() => {
-        return res.send(" SIGN UP SUCCESS");
+        return res.redirect("/");
       })
       .catch((e) => {
-        errors.push({ msg: "SIGN UP FAILED " + e.message });
+        return alert("SIGN UP FAILED " + e.message);
       });
   }
 });
