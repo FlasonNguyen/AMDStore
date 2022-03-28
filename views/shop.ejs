@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                <% if (user) { %>
+                <% if (locals.user) { %>
                     <div class="col-sm-6">
                         <div class="shopping-item">
                             <a href="#">User: <span class="cart-amunt">
@@ -91,6 +91,12 @@
                         <li><a href="#">Category</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
+                        <li>
+                            <form action="/kstore/search" method="get"><input
+                                    style="margin-left: 200px; margin-top: 10px" type="text" placeholder="Search.."
+                                    name="product"><button type="submit" style="border: 1px solid #ccc">Search</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -120,7 +126,7 @@
                             <div class="product-upper">
                                 <img src="<%= product.picture %>" alt="">
                             </div>
-                            <h2><a href="/kstore/processors<%= product._id %>">
+                            <h2><a href="/kstore/processors/<%= product._id %>">
                                     <%= product.model %>
                                 </a></h2>
                             <div class="product-carousel-price">

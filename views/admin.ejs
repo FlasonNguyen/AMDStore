@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KStore - AMD's Collaborator</title>
-    <link rel="icon" type="image/x-icon" href="images/logo_red.jpg" />
+    <link rel="icon" type="image/x-icon" href="/images/logo_red.jpg" />
 
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet'
@@ -180,124 +180,6 @@
         </div>
     </div> <!-- End mainmenu area -->
 
-    <div class="slider-area">
-        <div class="zigzag-bottom"></div>
-        <div id="slide-list" class="carousel carousel-fade slide" data-ride="carousel">
-
-            <div class="slide-bulletz">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <ol class="carousel-indicators slide-indicators">
-                                <li data-target="#slide-list" data-slide-to="0" class="active"></li>
-                                <li data-target="#slide-list" data-slide-to="1"></li>
-                                <li data-target="#slide-list" data-slide-to="2"></li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <div class="single-slide">
-                        <div class="slide-bg slide-one"></div>
-                        <div class="slide-text-wrapper">
-                            <div class="slide-text">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6 col-md-offset-6">
-                                            <div class="slide-content">
-                                                <h2>The Fastest in the Games</h2>
-                                                <p>Introducing the <a href=""> AMD Ryzen™ 5000 Series Desktop
-                                                        Processors. </a></p>
-                                                <a href="#" class="readmore">FIND RETAILERS</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="single-slide">
-                        <div class="slide-bg slide-two"></div>
-                        <div class="slide-text-wrapper">
-                            <div class="slide-text">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6 col-md-offset-6">
-                                            <div class="slide-content">
-                                                <h2>Play It All with Ryzen™ and Radeon™</h2>
-                                                <p>Browse preconfigured systems from our partners.</p>
-                                                <a href="" class="readmore">Learn more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="single-slide">
-                        <div class="slide-bg slide-three"></div>
-                        <div class="slide-text-wrapper">
-                            <div class="slide-text">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-6 col-md-offset-6">
-                                            <div class="slide-content">
-                                                <h2>Performance to Rule Your Game</h2>
-                                                <p>Introducing the <a href="">AMD Radeon™ RX 6000 Series graphics cards.
-                                                    </a></p>
-                                                <a href="" class="readmore">Learn more</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div> <!-- End slider area -->
-
-    <div class="promo-area">
-        <div class="zigzag-bottom"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-promo">
-                        <i class="fa fa-refresh"></i>
-                        <p>3 Years of Warranty & Customer Services</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-promo">
-                        <i class="fa fa-truck"></i>
-                        <p>AMD Radeon Support Software</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-promo">
-                        <i class="fa fa-lock"></i>
-                        <p>Up to date with technologies </p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="single-promo">
-                        <i class="fa fa-gift"></i>
-                        <p>Games Ultimately Support</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End promo area -->
-
     <div class="maincontent-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
@@ -305,30 +187,9 @@
                 <div class="col-md-12">
                     <div class="latest-product">
                         <h2 class="section-title">Top Processors</h2>
-                        <div class="product-carousel">
-                            <div class="single-product">
-
-                                <% if(products) {products.forEach((product)=> { %>
-                                    <h2><a href="/kstore/processors/<%= product._id %>">
-                                            <%= product.model %>
-                                        </a></h2>
-                                    <div class="product-carousel-price">
-                                        <ins>
-                                            <%= product.price %>
-                                        </ins>
-                                    </div>
-                            </div>
-                            <div class="single-product">
-                                <div class="product-f-image">
-                                    <img src="<%= product.picture %>" alt="">
-                                    <div class="product-hover">
-                                        <a href="/kstore/processors/<%= product._id %>" class="view-details-link"><i
-                                                class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                                <% })} %>
-                            </div>
-                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab perspiciatis corrupti cum facere
+                            ea consectetur dolores harum, quas odit commodi nobis repudiandae voluptate autem
+                            reprehenderit. Cupiditate quas quod veritatis placeat.</p>
                     </div>
                 </div>
             </div>

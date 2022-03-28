@@ -100,4 +100,5 @@ router.post("/signup", signUpValidator, (req, res) => {
       });
   }
 });
+
 module.exports = router;

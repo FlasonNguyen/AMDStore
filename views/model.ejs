@@ -88,6 +88,12 @@
                         <li><a href="#">Category</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
+                        <li>
+                            <form action="/kstore/search" method="get"><input
+                                    style="margin-left: 200px; margin-top: 10px" type="text" placeholder="Search.."
+                                    name="product"><button type="submit" style="border: 1px solid #ccc">Search</button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -114,8 +120,8 @@
                 <div class="col-md-4">
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Search Products</h2>
-                        <form action="">
-                            <input type="text" placeholder="Search products...">
+                        <form action="/kstore/search" method="get">
+                            <input type="text" name="product" placeholder="Search products...">
                             <input type="submit" value="Search">
                         </form>
                     </div>

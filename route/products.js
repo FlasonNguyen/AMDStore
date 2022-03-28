@@ -23,6 +23,44 @@ router.get("/", async (req, res) => {
       });
     });
 });
+router.get("/admin", async (req, res) => {
+  if (req.session.role == "admin") {
+    let user = req.session.name;
+    const products = await Product.find();
+    return res.render("admin", { user, products });
+  } else {
+    return res.redirect("/");
+  }
+});
+router.get("/search", async (req, res) => {
+  const page = req.params.page || 1;
+  const perPage = 12;
+  const filters = req.query;
+  const user = req.session.name;
+  console.log(filters);
+  await Product.find()
+    .skip(perPage * page - perPage)
+    .limit(perPage)
+    .exec(function (err, products) {
+      Product.countDocuments((err, count) => {
+        if (err) return next(err);
+        const filteredProduct = products.filter((product) => {
+          let isValid = true;
+          for (key in filters) {
+            console.log(product.model.includes(filters[key]));
+            isValid = isValid && product.model.includes(filters[key]);
+          }
+          return isValid;
+        });
+        return res.render("shop", {
+          products: filteredProduct,
+          current: page,
+          pages: Math.ceil(count / perPage),
+          user,
+        });
+      });
+    });
+});
 router.get("/:page", async (req, res, next) => {
   const page = req.params.page || 1;
   const perPage = 12;
@@ -157,4 +195,5 @@ router.put("/model/update/:id", async (req, res) => {
   await prod.save();
   return res.send("Update Completed: " + prod);
 });
+
 module.exports = router;
