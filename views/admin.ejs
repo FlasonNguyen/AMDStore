@@ -185,13 +185,179 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="latest-product">
-                        <h2 class="section-title">Top Processors</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab perspiciatis corrupti cum facere
-                            ea consectetur dolores harum, quas odit commodi nobis repudiandae voluptate autem
-                            reprehenderit. Cupiditate quas quod veritatis placeat.</p>
+                    <a href="" type="button" class="btn btn-primary admin" data-toggle="modal"
+                        data-target="#AddProduct"><span>Add Product</span></a>
+                    <a href="" type="button" class="btn btn-danger admin" data-toggle="modal"
+                        data-target="#DeleteProduct"><span>Delete Product</span></a>
+                    <a href="" type="button" class="btn btn-primary admin" data-toggle="modal"
+                        data-target="#UpdateProduct"><span>Update Product</span></a>
+                    <a href="/kstore" type="button" class="btn btn-primary admin"><span>Product List</span></a>
+                    <a href="" type="button" class="btn btn-primary admin"><span>User List</span></a>
+                    <a href="/account/signup" type="button" class="btn btn-primary admin"><span>Create Admin <br>
+                            Account</span></a>
+                    <a href="#" type="button" class="btn btn-primary admin"><span>Support</span></a>
+                </div>
+                <div class="modal fade" id="AddProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <form action="/kstore/model/add" method="post">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type=" button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        <h3 class="text-center"">Add Product</h3>
+                        </h5>
+                        
+                    </div>
+                    <div class=" modal-body" style="margin: auto; width: 50%; padding: 10px">
+
+                                            <span>Model:</span><br>
+                                            <input style="width: 100%;" type="text" name="model" required><br>
+                                            <span style="text-align: center">Specs</span>
+                                            <span>Platform:</span><br>
+                                            <input style="width: 100%;" type="text" name="platform" required><br>
+                                            <span>ProductFamily:</span><br>
+                                            <input style="width: 100%;" type="text" name="productFamily" required><br>
+                                            <span>CPU Cores:</span><br>
+                                            <input style="width: 100%;" type="text" name="cpuCore" required><br>
+                                            <span>CPU Thread:</span><br>
+                                            <input style="width: 100%;" type="text" name="cpuThread" required><br>
+                                            <span>CPU Core Technology:</span><br>
+                                            <input style="width: 100%;" type="text" name="cpuCoreTech" required><br>
+                                            <span>CPU Base Clock:</span><br>
+                                            <input style="width: 100%;" type="text" name="baseClock" required><br>
+                                            <span>CPU Max Clock:</span><br>
+                                            <input style="width: 100%;" type="text" name="maxClock" required><br>
+                                            <span>CPU Max Temperature:</span><br>
+                                            <input style="width: 100%;" type="text" name="maxTemp" required><br>
+                                            <span>CPU Architecture:</span><br>
+                                            <input style="width: 100%;" type="text" name="architecture" required><br>
+                                            <span>CPU Support Technology:</span><br>
+                                            <input style="width: 100%;" type="text" name="supportTech" required><br>
+                                            <span style="text-align: center">Connectivity</span>
+                                            <span>PCI Version:</span><br>
+                                            <input style="width: 100%;" type="text" name="cpiVer" required><br>
+                                            <span>CPU Memory Type:</span><br>
+                                            <input style="width: 100%;" type="text" name="memoryType" required><br>
+                                            <span>CPU Memory Channels:</span><br>
+                                            <input style="width: 100%;" type="text" name="memoryChannels" required><br>
+                                            <span>CPU Memory Spec:</span><br>
+                                            <input style="width: 100%;" type="text" name="memorySpec" required><br>
+                                            <span>Release Date</span><br>
+                                            <input style="width: 100%;" type="date" name="releaseDate" required><br>
+                                            <span>Price:</span><br>
+                                            <input style="width: 100%;" type="text" name="price" required><br>
+                                            <span>CPU Series:</span><br>
+                                            <input style="width: 100%;" type="text" name="series" required><br>
+                                            <span>CPU Picture URL:</span><br>
+                                            <input style="width: 100%;" type="url" name="picture" required><br>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                        </form>
                     </div>
                 </div>
+
+            </div>
+            <div class="modal fade" id="DeleteProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <form action="/kstore/model/remove" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type=" button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                    <h3 class="text-center"">Delete Product</h3>
+                        </h5>
+                        
+                    </div>
+                    <div class=" modal-body" style="margin: auto; width: 50%; padding: 10px">
+
+                                        <span>Product ID:</span><br>
+                                        <input style="width: 100%;" type="text" name="id" required><br>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="UpdateProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form action="/kstore/model/update" method="post">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type=" button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                <h3 class="text-center"">Add Product</h3>
+                        </h5>
+                        
+                    </div>
+                    <div class=" modal-body" style="margin: auto; width: 50%; padding: 10px">
+
+                                    <span><strong>Product ID:</strong></span><br>
+                                    <input style="width: 100%;" type="text" name="id" required><br>
+                                    <span>Model:</span><br>
+                                    <input style="width: 100%;" type="text" name="model" required><br>
+                                    <span style="text-align: center">Specs</span>
+                                    <span>Platform:</span><br>
+                                    <input style="width: 100%;" type="text" name="platform" required><br>
+                                    <span>ProductFamily:</span><br>
+                                    <input style="width: 100%;" type="text" name="productFamily" required><br>
+                                    <span>CPU Cores:</span><br>
+                                    <input style="width: 100%;" type="text" name="cpuCore" required><br>
+                                    <span>CPU Thread:</span><br>
+                                    <input style="width: 100%;" type="text" name="cpuThread" required><br>
+                                    <span>CPU Core Technology:</span><br>
+                                    <input style="width: 100%;" type="text" name="cpuCoreTech" required><br>
+                                    <span>CPU Base Clock:</span><br>
+                                    <input style="width: 100%;" type="text" name="baseClock" required><br>
+                                    <span>CPU Max Clock:</span><br>
+                                    <input style="width: 100%;" type="text" name="maxClock" required><br>
+                                    <span>CPU Max Temperature:</span><br>
+                                    <input style="width: 100%;" type="text" name="maxTemp" required><br>
+                                    <span>CPU Architecture:</span><br>
+                                    <input style="width: 100%;" type="text" name="architecture" required><br>
+                                    <span>CPU Support Technology:</span><br>
+                                    <input style="width: 100%;" type="text" name="supportTech" required><br>
+                                    <span style="text-align: center">Connectivity</span>
+                                    <span>PCI Version:</span><br>
+                                    <input style="width: 100%;" type="text" name="cpiVer" required><br>
+                                    <span>CPU Memory Type:</span><br>
+                                    <input style="width: 100%;" type="text" name="memoryType" required><br>
+                                    <span>CPU Memory Channels:</span><br>
+                                    <input style="width: 100%;" type="text" name="memoryChannels" required><br>
+                                    <span>CPU Memory Spec:</span><br>
+                                    <input style="width: 100%;" type="text" name="memorySpec" required><br>
+                                    <span>Release Date</span><br>
+                                    <input style="width: 100%;" type="date" name="releaseDate" required><br>
+                                    <span>Price:</span><br>
+                                    <input style="width: 100%;" type="text" name="price" required><br>
+                                    <span>CPU Series:</span><br>
+                                    <input style="width: 100%;" type="text" name="series" required><br>
+                                    <span>CPU Picture URL:</span><br>
+                                    <input style="width: 100%;" type="url" name="picture" required><br>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                </form>
             </div>
         </div>
     </div> <!-- End main content area -->

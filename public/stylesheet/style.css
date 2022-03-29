@@ -42,9 +42,6 @@ body {
 .header-area {
   background: none repeat scroll 0 0 #f4f4f4;
 }
-.header-area a {
-  color: #888;
-}
 .user-menu ul {
   list-style: outside none none;
   margin: 0;
@@ -671,7 +668,8 @@ ol.slide-indicators li.active {
 }
 
 .product-big-title-area {
-  background: url(https://www.amd.com/system/files/2021-07/workstation-navigation-test_1.jpg) repeat scroll 0 0 red;
+  background: url(https://www.amd.com/system/files/2021-07/workstation-navigation-test_1.jpg)
+    repeat scroll 0 0 red;
 }
 
 .product-bit-title h2 {
@@ -1148,4 +1146,12 @@ div.cart-collaterals ul.products li.product:hover .add_to_cart_button {
 .pagination > li > a,
 .pagination > li > span {
   color: red;
+}
+.admin {
+  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 15px;
+  height: 80px;
+  width: 160px;
 }

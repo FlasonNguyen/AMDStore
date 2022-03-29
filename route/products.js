@@ -136,16 +136,16 @@ router.post("/model/add", async (req, res) => {
   await newCPU.save();
   return res.json(newCPU);
 });
-router.delete("/model/remove/:id", async (req, res) => {
+router.post("/model/remove", async (req, res) => {
   if (!req.session.role) {
     return res.redirect("/account");
   }
-  let id = req.params.id;
-  await CPU.deleteOne({ id }).then(() => {
-    return res.send("DELETE COMPLETED");
+  let { id } = req.body;
+  await Product.deleteOne({ id }).then(() => {
+    return res.redirect("/kstore/admin");
   });
 });
-router.put("/model/update/:id", async (req, res) => {
+router.post("/model/update", async (req, res) => {
   if (!req.session.role) {
     return res.redirect("/account");
   }
@@ -168,7 +168,7 @@ router.put("/model/update/:id", async (req, res) => {
     supportTech,
     releaseDate,
   } = req.body;
-  let id = req.params.id;
+  let id = req.body.id;
   const prod = await CPU.findOne({ id });
   prod.overwrite({
     model: model,
