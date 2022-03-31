@@ -169,7 +169,7 @@ router.post("/model/update", async (req, res) => {
     releaseDate,
   } = req.body;
   let id = req.body.id;
-  const prod = await CPU.findOne({ id });
+  const prod = await Product.findOne({ id });
   prod.overwrite({
     model: model,
     specs: {
