@@ -10,7 +10,6 @@ app.set("view engine", "ejs"); //SET FRONT_END LA EJS
 app.use(express.static(__dirname + "/public"));
 app.use("/kstore", express.static(__dirname + "/public"));
 app.use("/kstore/processors", express.static(__dirname + "/public"));
-app.use("/kstore/", express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true })); //DOC URL
 app.use(express.json()); //DOC JSON VA IN URL
 
