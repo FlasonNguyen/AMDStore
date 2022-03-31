@@ -167,6 +167,10 @@ router.post("/model/update", async (req, res) => {
     memorySpec,
     supportTech,
     releaseDate,
+
+    price,
+    series,
+    picture,
   } = req.body;
   let id = req.body.id;
   const prod = await Product.findOne({ id });
@@ -191,9 +195,12 @@ router.post("/model/update", async (req, res) => {
       memorySpec,
     },
     releaseDate: releaseDate,
+    price: price,
+    series: series,
+    picture: picture,
   });
   await prod.save();
-  return res.send("Update Completed: " + prod);
+  return res.redirect("/kstore");
 });
 
 module.exports = router;
