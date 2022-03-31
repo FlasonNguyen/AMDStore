@@ -40,14 +40,92 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="user-menu">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
-                        </ul>
+                        <% if(!locals.user) { %>
+                            <ul>
+                                <li><a href="#" data-toggle="modal" data-target="#SignUpModal"><i
+                                            class="fa fa-user"></i>
+                                        Sign Up</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#SignInModal"><i
+                                            class="fa fa-user"></i>
+                                        Sign In</a></li>
+                            </ul>
+                            <% } else { %>
+                                <ul>
+                                    <li><a href="/account/signout"><i class="fa fa-user"></i>
+                                            Sign Out</a></li>
+                                </ul>
+                                <% } %>
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="SignUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <form action="/account/signup" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type=" button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                    <h3 class="text-center"">Sign Up</h3>
+                        </h5>
+                        
+                    </div>
+                    <div class=" modal-body" style="margin: auto; width: 50%; padding: 10px">
+
+                                        <span>Email:</span><br>
+                                        <input style="width: 100%;" type="email" name="email" required><br>
+                                        <span>Password:</span><br>
+                                        <input style="width: 100%;" type="password" name="password" required><br>
+                                        <span>Phone:</span><br>
+                                        <input style="width: 100%;" type="text" name="phone" required><br>
+                                        <span>Address:</span><br>
+                                        <input style="width: 100%;" type="text" name="address" required><br>
+                                        <span>Name:</span><br>
+                                        <input style="width: 100%;" type="text" name="name" required><br>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
         </div>
+        <div class="modal fade" id="SignInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form action="/account/signin" method="post">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type=" button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h5 class="modal-title" id="exampleModalLabel">
+                                <h3 class="text-center"">Login</h3>
+                        </h5>
+                        
+                    </div>
+                    <div class=" modal-body" style="margin: auto; width: 50%; padding: 10px">
+
+                                    <span>Email:</span><br>
+                                    <input style="width: 100%;" type="email" name="email" id="emailinp" required><br>
+                                    <span>Password:</span><br>
+                                    <input style="width: 100%;" type="password" name="password" id="passwordinp"
+                                        required><br>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
     </div> <!-- End header area -->
 
     <div class="site-branding-area">
@@ -87,10 +165,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/">Home</a></li>
                         <li><a href="/kstore">Processors</a></li>
-                        <li><a href="/kstore/features">Features</a></li>
-                        <li><a href="#">Category</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#" disabled>Features ( Coming Soon )</a></li>
                         <li>
                             <form action="/kstore/search" method="get"><input
                                     style="margin-left: 200px; margin-top: 10px" type="text" placeholder="Search.."

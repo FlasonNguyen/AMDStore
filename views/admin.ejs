@@ -163,11 +163,9 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/">Home</a></li>
-                        <li><a href="/kstore">Processors</a></li>
-                        <li><a href="/kstore/features">Features</a></li>
-                        <li><a href="#">Category</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li class="active"><a href="/kstore">Processors</a></li>
+                        <li class="active"><a href="#" style="
+                            cursor: not-allowed;">Features ( Coming Soon )</a></li>
                         <li>
                             <form action="/kstore/search" method="get"><input
                                     style="margin-left: 200px; margin-top: 10px" type="text" placeholder="Search.."
@@ -192,10 +190,13 @@
                     <a href="" type="button" class="btn btn-primary admin" data-toggle="modal"
                         data-target="#UpdateProduct"><span>Update Product</span></a>
                     <a href="/kstore" type="button" class="btn btn-primary admin"><span>Product List</span></a>
-                    <a href="" type="button" class="btn btn-primary admin"><span>User List</span></a>
-                    <a href="/account/signup" type="button" class="btn btn-primary admin"><span>Create Admin <br>
+                    <a href="" type="button" class="btn btn-primary admin" disabled><span>User List (Coming
+                            Soon)</span></a>
+                    <a href="/account/signup" type="button" class="btn btn-primary admin" disabled><span>Create Admin
+                            (Coming Soon)<br>
                             Account</span></a>
-                    <a href="#" type="button" class="btn btn-primary admin"><span>Support</span></a>
+                    <a href="#" type="button" class="btn btn-primary admin" disabled><span>Support ( Coming Soon
+                            )</span></a>
                 </div>
                 <div class="modal fade" id="AddProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
