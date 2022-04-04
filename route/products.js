@@ -134,14 +134,14 @@ router.post("/model/add", async (req, res) => {
     picture: picture,
   });
   await newCPU.save();
-  return res.json(newCPU);
+  return res.redirect("/kstore");
 });
 router.post("/model/remove", async (req, res) => {
   if (!req.session.role) {
     return res.redirect("/account");
   }
   let { id } = req.body;
-  await Product.deleteOne({ id }).then(() => {
+  await Product.deleteOne({ _id: id }).then(() => {
     return res.redirect("/kstore/admin");
   });
 });
@@ -173,7 +173,7 @@ router.post("/model/update", async (req, res) => {
     picture,
   } = req.body;
   let id = req.body.id;
-  const prod = await Product.findOne({ id });
+  const prod = await Product.findOne({ _id: id });
   prod.overwrite({
     model: model,
     specs: {
